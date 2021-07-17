@@ -17,6 +17,13 @@ class First_model extends CI_Model {
     $insert=$this->db->insert('users',$data);
     return $insert;
   }
+  function check_username($username){
+    //$this->db->count_all_results('users');
+    $this->db->like('USERNAME',$username);
+    $this->db->from('users');
+    $qry = $this->db->count_all_results();
+    return $qry;
+  }
   function check_user($data){
     $qry = $this->db->get_where('users',$data)->row();
     return $qry;

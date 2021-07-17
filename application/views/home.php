@@ -28,6 +28,8 @@
         <input type="submit" name="Submit" class="btn btn-primary btn-block">
     </form>
     <a href="delete" class="link-danger">Delete My Account</a>
+    <br>
+    <a href="logout" class="link-danger">LogOut</a>
     </div>
     </div>
 </body>

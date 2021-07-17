@@ -30,7 +30,8 @@ class Home extends CI_Controller {
                 'USERNAME'=>$username,
 				'PASSWORD'=>$password
 			);
-			if($result=$this->First_model->update_user($data)){
+			if($this->First_model->check_username($username)==0){
+				if($result=$this->First_model->update_user($data)){
 				$this->session->set_flashdata('status','<div class="alert alert-success text-center">Change Successfully!</div>');
 				$this->session->set_userdata('DATA',$result);
                 redirect('home/index');
@@ -38,16 +39,29 @@ class Home extends CI_Controller {
 				$this->session->set_flashdata('status','<div class="alert alert-success text-center">Something want wrong!</div>');
                 redirect('home/index');
 			}
-			}
+			}else{
+					$this->session->set_flashdata('status','<div class="alert alert-danger text-center">Username already exsits</div>');
+					redirect('home/index');
+				
+				
+			}}
 		}else{
 			redirect('login/index');
 		 }
+		}
+		public function logout(){
+			$this->session->set_flashdata('status','<div class="alert alert-success text-center">Log Out!</div>');
+			$this->session->sess_destroy();
+			redirect('login/index');
+			
+		
 		}
 		public function delete(){
 			$data=$this->First_model->delete($this->session->userdata['DATA']->ID);
 			if($data){
 				redirect('login');
-				$this->session->set_flashdata('status','<div class="alert alert-success text-center">Log Out!</div>');
+				
+				$this->session->set_flashdata('status','<div class="alert alert-success text-center">Account Delete Successfull!</div>');
 		}
 	}
 }

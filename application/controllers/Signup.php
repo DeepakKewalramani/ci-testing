@@ -13,18 +13,19 @@ class Signup extends CI_Controller {
     function index(){
         $this->form_validation->set_rules('name', 'NAME', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('username','USERNAME','trim|required|min_length[5]');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|md5');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
         if($this->form_validation->run()==FALSE){
             $this->load->view('signup');
         }else{
             $name = $this->input->post('name');
             $user = $this->input->post('username');
-            $pass = $this->input->post('password');
+            $pass = md5($this->input->post('password'));
+           if($this->First_model->check_username($user)==0){
             $data=array(
-                'USERNAME'=>$this->input->post('username'),
-                'PASSWORD'=>$this->input->post('password'),
-                'NAME'=>$this->input->post('name')
-            );  
+                'USERNAME'=>$name,
+                'PASSWORD'=>$pass,
+                'NAME'=>$name
+            ); 
             if($this->First_model->create_user($data)){
                 $this->session->set_flashdata('status','<div class="alert alert-success text-center">You are Successfully Registered! Please login to access your Profile!</div>');
                 redirect('signup/index');
@@ -34,7 +35,11 @@ class Signup extends CI_Controller {
                 $this->session->set_flashdata('status','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
                 redirect('signup/index');
             }
+        }else{
+            $this->session->set_flashdata('status','<div class="alert alert-danger text-center">Username already exsits</div>');
+            redirect('signup/index');
         }
+    }
        
         
     }
