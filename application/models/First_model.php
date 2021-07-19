@@ -37,10 +37,11 @@ class First_model extends CI_Model
   {
     $qry = $this->db->get_where('users', array('ID' => $id), 1)->row();
     $arr = [
-      'id' => $qry->ID,
-      'name' => $qry->NAME,
-      'username' => $qry->USERNAME,
-      'password' => $qry->PASSWORD
+      'ID' => $qry->ID,
+      'NAME' => $qry->NAME,
+      'USERNAME' => $qry->USERNAME,
+      'PASSWORD' => $qry->PASSWORD,
+      'PROFILE_PATH'=>$qry->PROFILE_PATH
     ];
     return $arr;
   }

@@ -15,17 +15,20 @@ class Home extends CI_Controller
 	}
 	public function index()
 	{
-
-		if (isset($this->session->userdata['DATA']->USERNAME) && isset($this->session->userdata['DATA']->PASSWORD)) {
-			$this->form_validation->set_rules('new_name', 'NAME', 'trim|required|min_length[5]');
-			$this->form_validation->set_rules('new_username', 'USERNAME', 'trim|required');
+		if ($this->session->has_userdata('DATA')){
+			$this->form_validation->set_rules('new_name', 'NAME', 'trim|required');
+			$this->form_validation->set_rules('new_username', 'USERNAME', 'trim|required|min_length[5]');
 			$this->form_validation->set_rules('new_password', 'PASSWORD', 'trim|required|min_length[8]');
 
 			if ($this->form_validation->run() == FALSE) {
-				$data = $this->session->userdata['DATA'];
-				$this->load->view('home', $data);
+				$id = $this->session->userdata('ID');
+				$this->db->where('ID', $id);
+				$data = $this->db->get('users')->row();
+				$this->load->view('home', [
+					'data' => $data
+				]);
 			} else {
-				$id = $this->session->userdata['DATA']->ID;
+				$id = $this->session->userdata('ID');
 				$name = $this->input->post('new_name');
 				$username = $this->input->post('new_username');
 				$password = md5($this->input->post('new_password'));
@@ -35,13 +38,14 @@ class Home extends CI_Controller
 					'USERNAME' => $username,
 					'PASSWORD' => $password
 				);
-				if (($this->First_model->check_username($username,$id) == 0))  {
+				if ($this->First_model->check_username($username,$id) == 0)  {
 					
 					if ($result = $this->First_model->update_user($data)) {
-					$session=array('status'=>'TRUE','DATA'=>$data);
-					$this->session->set_userdata($session);
+						$session=array('status'=>'TRUE','DATA'=>$data);
+					
+						$this->session->set_userdata($session);
 						$this->session->set_flashdata('status', '<div class="alert alert-success text-center">Change Successfully!</div>');
-						redirect('login/index');
+						redirect('home/index');
 						
 					} else {
 						$this->session->set_flashdata('status', '<div class="alert alert-success text-center">Something want wrong!</div>');
@@ -70,8 +74,9 @@ class Home extends CI_Controller
 
 	public function logout()
 	{
-		$this->session->set_flashdata('status', '<div class="alert alert-success text-center">Log Out!</div>');
 		$this->session->sess_destroy();
+		$this->session->set_flashdata('status', '<div class="alert alert-success text-center">Log Out!</div>');
+		
 		redirect('home/index');
 	}
 
@@ -80,9 +85,10 @@ class Home extends CI_Controller
 	{
 		$data = $this->First_model->delete($this->session->userdata['DATA']->ID);
 		if ($data) {
+			$this->session->set_flashdata('status', '<div class="alert alert-success text-center">Account Delete Successfull!</div>');
 			redirect('login/index');
 
-			$this->session->set_flashdata('status', '<div class="alert alert-success text-center">Account Delete Successfull!</div>');
+			
 		}
 	}
 }

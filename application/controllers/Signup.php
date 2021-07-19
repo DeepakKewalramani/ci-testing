@@ -24,7 +24,8 @@ class Signup extends CI_Controller {
             $data=array(
                 'USERNAME'=>$user,
                 'PASSWORD'=>$pass,
-                'NAME'=>$name
+                'NAME'=>$name,
+                'PROFILE_PATH'=>'user-picture.png'
             ); 
             if($this->First_model->create_user($data)){
                 $this->session->set_flashdata('status','<div class="alert alert-success text-center">You are Successfully Registered! Please login to access your Profile!</div>');

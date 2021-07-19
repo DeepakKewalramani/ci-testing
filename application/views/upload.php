@@ -11,6 +11,7 @@
 <body>
     <div class="container">
     <div class="form-group col-md-12 mx-auto text-center">
+        
     <form action="upload/upload_file" method="POST" enctype="multipart/form-data">
         <div class="form-controls">
         <label for="img">Image Upload</label>

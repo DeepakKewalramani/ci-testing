@@ -23,9 +23,16 @@ class Upload extends CI_Controller{
             $result=$this->upload->data();
             $full_path= $result['file_name'];
             $op=$this->First_model->upload_img($this->session->userdata['DATA']->ID,$full_path);
+            $data=['USERNAME'=>$this->session->userdata['DATA']->USERNAME, 'PASSWORD'=>$this->session->userdata['DATA']->PASSWORD];
+            $result=$this->First_model->check_user($data);
             if($op){
+                if(($this->session->userdata['DATA']->PROFILE_PATH)!="user-picture.png"){
+               @unlink('uploads/'.$this->session->userdata['DATA']->PROFILE_PATH);}
+               $sdata=array('DATA'=>$result);
+               $this->session->set_userdata($sdata);
                 $this->session->set_flashdata('status', '<div class="alert alert-success text-center">Upload Successfully!</div>');
-                redirect('home/index');
+               redirect('home/index');
+               
             }
         }else{
             $error= $this->upload->display_errors();

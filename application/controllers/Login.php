@@ -22,8 +22,8 @@ class Login extends CI_Controller {
         $data=['USERNAME'=>$username, 'PASSWORD'=>md5($password)];
         
         if($result=$this->First_model->check_user($data)){
-            $sdata=array('status'=>'TRUE','DATA'=>$result);
-            
+            print_r($result);
+            $sdata=array('status'=>'TRUE','DATA'=>$result,'ID'=>$result->ID);
             $this->session->set_userdata($sdata);
             $this->session->set_flashdata('status','<div class="alert alert-success text-center">Login Successfully</div>');
             redirect('home/index');
