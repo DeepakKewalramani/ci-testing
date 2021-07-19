@@ -13,8 +13,7 @@
                 echo $this->session->flashdata('status');
         }
         ?>
-    <?php if(validation_errors()){
-                echo validation_errors(); }?>
+    <? echo validation_errors();?>
     <div class="form-group col-sm-10 mx-auto">
         
         

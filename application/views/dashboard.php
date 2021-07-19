@@ -9,6 +9,7 @@
 <body>
     <div class="container mt-5"> 
     <div class="form-group col-sm-10 mx-auto">
+        <h1 class="">USERS RECORDS</h1>
     <?php 
      echo "<div class='table-responsive'><table class='table'><tr><th>ID</th><th>NAME</th><th>USERNAME</th><th>PASSWORD</th></tr><tr>";
 

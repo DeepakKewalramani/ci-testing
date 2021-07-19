@@ -11,11 +11,11 @@
 </head>
 <body>
     <div class="container mt-5"> 
-    <?php 
-    if($this->session->flashdata('status')){
-        echo $this->session->flashdata('status');
-    }
-    ?>
+    <?php if($this->session->flashdata('status')){
+                echo $this->session->flashdata('status');
+        }
+        ?>
+    <? echo validation_errors()?>
      <div class="form-group col-sm-5 mx-auto">
     <h1 class="text-center">Welcome <?php echo $NAME?></h1>
     <form method="POST" action="" class="form-group">
@@ -24,12 +24,14 @@
         <label for="username">USERNAME</label>
         <input type="text" name="new_username" class="form-control border border-dark"  value="<?php echo $USERNAME?>">
         <label for="password">PASSWORD</label>
-        <input type="text" name="new_password" class="form-control border border-dark"  value="">
+        <input type="password" name="new_password" class="form-control border border-dark"  value="">
         <input type="submit" name="Submit" class="btn btn-primary btn-block">
     </form>
-    <a href="delete" class="link-danger">Delete My Account</a>
-    <br>
-    <a href="logout" class="link-danger">LogOut</a>
+    <div class="row">
+    <a href="logout" class="link-danger col-lg-4 col-md-4 text-left">LogOut</a>
+    <a href="upload" class="link-danger col-lg-4 col-md-4 text-center">Upload Profile</a>
+    <a href="delete" class="link-danger col-lg-4 col-md-4 text-right">Delete My Account</a>
+    </div>
     </div>
     </div>
 </body>

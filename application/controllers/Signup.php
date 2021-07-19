@@ -22,7 +22,7 @@ class Signup extends CI_Controller {
             $pass = md5($this->input->post('password'));
            if($this->First_model->check_username($user)==0){
             $data=array(
-                'USERNAME'=>$name,
+                'USERNAME'=>$user,
                 'PASSWORD'=>$pass,
                 'NAME'=>$name
             ); 

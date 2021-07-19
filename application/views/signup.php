@@ -12,9 +12,7 @@
 <body>
     <div class="container mt-5"> 
          <div class="form-group col-sm-10 mx-auto">
-         <?php if($this->session->flashdata('status')){
-                echo $this->session->flashdata('status');
-            }?>
+         <?=$this->session->flashdata('status');?>
          <?=validation_errors()?>
     <h1 class="text-center">SIGN UP</h1>
     <form method="POST" action="" name="myForm" id="myForm" class="form-control row">
