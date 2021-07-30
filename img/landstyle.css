@@ -7,11 +7,10 @@
 body {
     width: 100%;
     height: 100vh;
-    overflow-x: hidden;
 }
 
 .navbar {
-    margin-top: 2%;
+    /* margin-top: 2%; */
     font-family: 'Poppins', sans-serif;
     justify-content: center;
 }
@@ -20,7 +19,7 @@ body {
     font-size: 5em;
 }
 
-.row {
+.home .row {
     width: 100%;
     height: 100vh;
 }
@@ -29,8 +28,9 @@ body {
     text-decoration: none;
 }
 
-.banner {
-    height: 100vh;
+section[id="home"] {
+    width: 100%;
+    height: 100%;
     background: linear-gradient( rgba(38, 43, 219, 0.45), rgba(38, 43, 219, 0.45)), url('/Codeigniter/img/woman1.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -76,7 +76,7 @@ nav .nav-item a:hover {
 }
 
 .main .text {
-    margin-left: 25%;
+    align-items: center;
 }
 
 .main .heading {
@@ -96,7 +96,7 @@ nav .nav-item a:hover {
 .main .btn {
     background-color: white;
     color: black;
-    height: 12%;
+    height: 10%;
     border-radius: 10px;
     text-transform: capitalize;
     font-weight: 600;
@@ -104,7 +104,7 @@ nav .nav-item a:hover {
 }
 
 .main .ex {
-    /* margin: 5%; */
+    margin-left: 5%;
     text-transform: capitalize;
     color: #fff;
 }
@@ -129,7 +129,6 @@ nav .nav-item a:hover {
 
 .about {
     width: 100%;
-    height: 100vh;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -137,7 +136,7 @@ nav .nav-item a:hover {
     width: 50%;
     font-weight: 500;
     text-align: center;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 15px;
     text-transform: capitalize;
 }
@@ -150,6 +149,83 @@ nav .nav-item a:hover {
     text-align: center;
 }
 
+.why-section {
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.why-section .heading {
+    width: 50%;
+    font-weight: 500;
+    text-align: center;
+    margin: 10 auto;
+    padding: 15px;
+    text-transform: capitalize;
+}
+
+.why-section .para {
+    text-align: center;
+    color: #6B6969;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.why-section .icon {
+    width: 200px;
+    overflow: hidden;
+}
+
+.why-section .box {
+    width: 351px;
+    height: 307px;
+    float: left;
+    text-align: center;
+    background: #0D13D7 0% 0% no-repeat padding-box;
+    transform: perspective(1000px) rotate3d(0, 1, 0, 45deg);
+    transform-origin: left;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.why-section .circle-1 {
+    position: absolute;
+    transform: translate(100px, 40px);
+    background-color: white;
+    border-radius: 100%;
+    opacity: 0.2;
+    width: 75%;
+    height: 75%;
+}
+
+.why-section .circle-2 {
+    position: absolute;
+    transform: translate(40px, 0px);
+    background-color: white;
+    border-radius: 100%;
+    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+}
+
+.why-section .row .radius {
+    width: 50px;
+    height: 50px;
+}
+
+.why-section .row {
+    /* display: flex; */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.why-section .row .left {
+    display: flex;
+}
+
+.why-section .section-2 h1 {
+    font-size: 2em;
+}
+
 .about-us {
     display: flex;
     width: 80%;
@@ -157,16 +233,51 @@ nav .nav-item a:hover {
     text-align: center;
 }
 
-.about-us .one {
-    padding: 40px;
+.why-section .img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 180px;
+    height: auto;
+    /* margin-left: -150px; */
+}
+
+.why-section .left img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.why-section .right img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.why-section .btn {
+    display: flex;
+    background: #FFFFFF;
+    border: 1px solid #0D13D7;
+    border-radius: 16px;
+    opacity: 1;
+    font-size: 1em;
+    width: 175px;
+    height: 45px;
+    text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
 }
 
 .about .one img {
-    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    height: auto;
 }
 
-.about-us .one h1 {
-    font-size: 1.5em;
+/* .about-us h1{
+    font-size: 32px;
+} */
+
+.about-us h1 {
+    font-size: 1em;
     text-align: center;
     color: #000000;
     font-weight: lighter;
@@ -195,34 +306,6 @@ nav .nav-item a:hover {
     width: 50%;
 }
 
-.about-section .box {
-    width: 351px;
-    height: 307px;
-    float: left;
-    text-align: center;
-    background: #0D13D7 0% 0% no-repeat padding-box;
-    transform: perspective(1000px) rotate3d(0, 1, 0, 45deg);
-    transform-origin: left;
-    transform-style: preserve-3d;
-}
-
-.about-section .radius {
-    width: 50px;
-    height: 50px;
-    display: inline;
-    margin-left: 100px;
-    background: radial-gradient(red, green, blue);
-}
-
-.left img {
-    float: left;
-    margin-left: -150px;
-}
-
-.right img {
-    text-align: right;
-}
-
 .about-section .right {
     width: 40%;
 }
@@ -242,20 +325,6 @@ nav .nav-item a:hover {
     text-transform: capitalize;
 }
 
-.about-section .btn {
-    display: flex;
-    background: #FFFFFF;
-    border: 1px solid #0D13D7;
-    border-radius: 16px;
-    opacity: 1;
-    font-size: 1em;
-    width: 175px;
-    height: 45px;
-    text-transform: capitalize;
-    align-items: center;
-    justify-content: center;
-}
-
 .about-section p {
     font-size: 0.6em;
     color: #6B6969;
@@ -267,16 +336,14 @@ nav .nav-item a:hover {
 /* .about-section-1 */
 
 .about-section-1 {
-    margin: 25px auto;
+    margin: 0 auto;
 }
 
 .about-section-1 h1 {
-    font-size: 2em;
-    width: 80%;
-    text-align: left;
-    color: #000000;
-    font-weight: lighter;
-    font-weight: 700;
+    font-weight: 500;
+    text-align: center;
+    margin: 10 auto;
+    padding: 15px;
     text-transform: capitalize;
 }
 
@@ -285,12 +352,12 @@ nav .nav-item a:hover {
     color: #6B6969;
     font-weight: lighter;
     font-size: medium;
-    font-weight: 100;
+    font-weight: 400;
+    text-align: center;
 }
 
 .about-us-1 {
     display: flex;
-    width: 90%;
     margin: 50px auto;
     text-align: center;
     justify-content: space-evenly;
@@ -298,23 +365,11 @@ nav .nav-item a:hover {
 
 .about-us-1 .sections {
     display: flex;
-    align-items: flex-start
-}
-
-.sections {
     align-items: center;
 }
 
-.sections h1 {
-    text-align: left;
-    font-size: 20px;
-}
-
-.sections p {
-    text-align: left;
-}
-
 .about-us-2 {
+    width: 100%;
     display: flex;
     margin: 50px auto;
     text-align: center;
@@ -323,10 +378,13 @@ nav .nav-item a:hover {
 }
 
 .sections .sec-text h1 {
+    text-align: left;
+    font-size: 20px;
     font-weight: 500;
     color: #1453FF;
     text-transform: capitalize;
     opacity: 1;
+    margin: -15px;
 }
 
 .sections .sec-text p {
@@ -336,22 +394,58 @@ nav .nav-item a:hover {
     color: #242424;
     text-transform: capitalize;
     opacity: 1;
+    margin: 0px;
 }
 
-.about-us-2 .port-box {
-    width: 60px;
-    height: 350px;
-    background: blue;
-    transform: perspective(100px) rotate3d(0, 1, 0, 170deg);
+.about-us-2 .portfolio-img {
+    width: 15%;
+    border-radius: 30px;
+    text-align: left;
+}
+.about-us-2 .icon-2{
+    width: 200px;
+    overflow: hidden;
 }
 
-.about-us-2 .img1 {}
+.about-us-2 .icon-2 .port-box {
+    overflow: hidden;
+    width: 150px;
+    height: 340px;
+    text-align: right;
+    background: #0D13D7 0% 0% no-repeat padding-box;
+    transform: perspective(1000px) rotate3d(0, 1, 0, 
+330deg
+ );
+    transform-origin: right;
+    transform-style: preserve-3d;
+    position: relative;
+}
 
-.about-us-2 .img1 {}
-
-.about-us-2 .img1 {}
-
-.about-us-2 .img1 {}
+.about-us-2 .icon-2 .circle-1 {
+    position: absolute;
+    transform: translate(-4px, 44px);
+    background-color: #ffffff;
+    border-radius: 100%;
+    opacity: 0.2;
+    width: 300%;
+    height: 76%;
+    top: 0;
+    right: 0;
+}
+.about-us-2 .icon-2 .circle-2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(58px, 1px);
+    background-color: #ffffff;
+    border-radius: 100%;
+    opacity: 0.3;
+    width: 300%;
+    height: 100%;
+}
+.about-us-2 img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .feedback-section {
     display: flex;
@@ -373,6 +467,8 @@ nav .nav-item a:hover {
 }
 
 .feedback h1 {
+    color: #000000;
+    text-transform: capitalize;
     width: 60%;
 }
 
@@ -381,6 +477,7 @@ nav .nav-item a:hover {
     color: #707070;
     text-transform: capitalize;
     opacity: 1;
+    font-size: 15px;
 }
 
 .feedback-review {
@@ -391,10 +488,9 @@ nav .nav-item a:hover {
     justify-content: left;
 }
 
-.feedback-img {
-    width: 30%;
-    margin: 10px;
-    text-align: center;
+.feedback-img img {
+    width: 70%;
+    text-align: right;
 }
 
 .rating {
@@ -402,18 +498,18 @@ nav .nav-item a:hover {
 }
 
 .feedback-text {
-    width: 40%;
+    /* width: 40%; */
     text-align: left;
 }
 
 .feedback-text p {
     text-align: left;
-    font: normal normal normal 22px Poppins;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
     letter-spacing: -0.48px;
     color: #222D39;
     text-transform: capitalize;
     opacity: 1;
-    font-weight: 400;
 }
 
 .feedback-text h1 {
@@ -445,24 +541,15 @@ nav .nav-item a:hover {
 }
 
 .contact-form {
-    width: 70%;
+    width: 75%;
     margin: 10px auto;
     background: #333697;
     border-radius: 16px;
 }
 
 .flex {
-    display: inline-flex;
     padding: 20px 40px;
     align-items: center;
-}
-
-.contact {
-    width: 50%;
-}
-
-.form {
-    width: 50%;
 }
 
 .contact h1 {
@@ -476,47 +563,58 @@ nav .nav-item a:hover {
 }
 
 .contact p {
-    font-size: medium;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Open Sans", sans-serif;
     text-align: left;
-    font-family: "Open Sans";
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
 
 .form {
-    text-align: center;
-    align-items: center;
-    color: #7C7C7C;
-    font-weight: 400;
-    padding: 10px auto;
-    background: #FFFFFF;
+    display: inline-flex;
     border-radius: 40px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.form .block {
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .form input[type=text] {
-    width: 220px;
-    border-radius: 40px;
-    height: 50px;
-    padding: 5px;
+    text-indent: 5%;
+    height: 40px;
+    color: #7C7C7C;
+    font-weight: 400;
+    padding: 10px auto;
+    width: 100%;
     outline: none;
     border: none;
+    border-radius: 20px;
 }
 
 .form button {
+    /* margin-left: -10px; */
+    position: absolute;
+    right: 5%;
+    top: 15%;
     background: #333697;
     border-radius: 40px;
-    border: none;
-    outline: none;
     height: 30px;
-    width: 150px;
+    outline: none;
+    border: none;
+    width: 100px;
     cursor: pointer;
     color: white;
 }
 
 .footer {
-    width: 80%;
-    padding: 20px 20px;
+    padding: 20px 0px;
     margin: 0 auto;
 }
 
@@ -541,7 +639,8 @@ nav .nav-item a:hover {
     font-size: 25px;
     padding: 10px;
 }
-.foot-sec .section-1 .media-icons:hover{
+
+.foot-sec .section-1 .media-icons:hover {
     color: #333697;
     font-size: 25px;
     padding: 10px;
@@ -555,11 +654,10 @@ nav .nav-item a:hover {
     background: linear-gradient( 55deg, #d3cccc, );
     display: inline-flex;
     background-color: #6D79C2;
-    transform: perspective(71px) rotate3d(0, 0, -1, 
-48deg
-);
+    transform: perspective(71px) rotate3d(0, 0, -1, 48deg);
 }
-.foot-sec .section-1 .icon-2{
+
+.foot-sec .section-1 .icon-2 {
     transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0);
     width: 62px;
     border-radius: 15px;
@@ -569,10 +667,9 @@ nav .nav-item a:hover {
     display: inline-flex;
     background-color: #8994DF;
     margin-top: 22px;
-    transform: perspective(71px) rotate3d(0, 0, -1, 
-48deg
-);
+    transform: perspective(71px) rotate3d(0, 0, -1, 48deg);
 }
+
 .foot-sec .section-1 h1 {
     display: inline-block;
     text-align: left;
@@ -591,12 +688,14 @@ nav .nav-item a:hover {
     color: #8A8A8A;
     text-transform: capitalize;
 }
+
 .footer-about {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     align-items: center;
 }
-.footer-about a{
- margin :0 10px;
+
+.footer-about a {
+    margin: 0 10px;
 }

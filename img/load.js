@@ -1,5 +1,5 @@
-window.addEventListener('scroll', function() {
-    var element = window;
-    console.log(element);
-   console.log(window.pageYOffset + 'px');
-  });
+document.getElementsByClassName("wrapper")[0].onscroll = function() {myFunction()};
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "You scrolled in div.";
+}
